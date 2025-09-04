@@ -42,7 +42,7 @@ const features = [
   },
   { id: "3", title: "Offline Support", screen: "offlinesupportscreen" },
   { id: "4", title: "Secure Token Storage", screen: "tokenscreen" },
-  { id: "5", title: "Deep Linking", screen: "DeepLinkScreen" },
+  { id: "5", title: "Deep Linking", screen: "userslistscreen" },
   { id: "6", title: "Code Review Fix", screen: "CodeFixScreen" },
   { id: "7", title: "Native Module", screen: "NativeModuleScreen" },
 ];
