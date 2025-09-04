@@ -4,6 +4,7 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
+  CartScreen,
   ContentDetails,
   Contentscreen,
   HomeScreen,
@@ -30,6 +31,8 @@ const AppNavigator = () => {
         />
 
         <Stack.Screen name="productslistscreen" component={ProductListScreen} />
+
+        <Stack.Screen name="cartscreen" component={CartScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

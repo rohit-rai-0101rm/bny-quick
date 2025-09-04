@@ -83,7 +83,7 @@ const ProductsListScreen: React.FC = () => {
   );
 
   const handleGoToCart = useCallback(() => {
-    navigation.navigate("CartScreen" as never);
+    navigation.navigate("cartscreen" as never);
   }, [navigation]);
 
   return (
