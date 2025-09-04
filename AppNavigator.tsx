@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
   CartScreen,
+  CodeFixScreen,
   HomeScreen,
   OfflineSupport,
   OptimizedLargeList,
@@ -21,6 +22,7 @@ export type RootStackParamList = {
   tokenscreen: undefined;
   userslistscreen: undefined;
   userdetailsscreen: { id: string };
+  codefixscreen: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -59,6 +61,8 @@ const AppNavigator = () => {
         <Stack.Screen name="tokenscreen" component={TokenScreen} />
         <Stack.Screen name="userslistscreen" component={UsersListScreen} />
         <Stack.Screen name="userdetailsscreen" component={UserDetailsScreen} />
+
+        <Stack.Screen name="codefixscreen" component={CodeFixScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

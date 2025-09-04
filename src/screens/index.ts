@@ -17,3 +17,7 @@ export { default as TokenScreen } from './TokenScreen'
 export { default as UsersListScreen } from './UserListScreen'
 
 export { default as UserDetailsScreen } from './UserDetailsScreen'
+
+export { default as CodeFixScreen } from './CodeReviewFix'
+
+
