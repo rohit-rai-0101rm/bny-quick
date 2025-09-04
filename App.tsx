@@ -25,7 +25,7 @@ const App = () => {
           setAuthToken(token);
         }
       } catch (error) {
-        console.error("❌ Token setup failed:", error);
+        console.error(" Token setup failed:", error);
       }
     };
 

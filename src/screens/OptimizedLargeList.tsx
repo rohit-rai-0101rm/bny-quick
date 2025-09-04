@@ -10,14 +10,12 @@ import {
 
 const ITEM_HEIGHT = 70;
 
-// Modern list item
 const ListItem = memo(
   ({ item, index }: { item: { title: string }; index: number }) => {
     const backgroundColor = index % 2 === 0 ? "#f9fafc" : "#ffffff";
 
     return (
       <View style={[styles.itemContainer, { backgroundColor }]}>
-        {/* Optional small icon/avatar */}
         <View style={styles.avatar}>
           <Text style={styles.avatarText}>{index + 1}</Text>
         </View>

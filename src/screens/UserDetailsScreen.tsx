@@ -1,4 +1,3 @@
-// src/screens/UserDetailsScreen.tsx
 import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
 import { RouteProp, useRoute } from "@react-navigation/native";

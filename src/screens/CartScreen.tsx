@@ -1,4 +1,3 @@
-// src/screens/CartScreen.tsx
 import React, { useMemo } from "react";
 import {
   View,

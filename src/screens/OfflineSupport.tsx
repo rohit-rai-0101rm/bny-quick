@@ -32,7 +32,6 @@ const OfflineScreen: React.FC = () => {
 
     try {
       if (netState.isConnected) {
-        // Add a timeout to avoid hanging
         const controller = new AbortController();
         const timeout = setTimeout(() => controller.abort(), 8000);
 
