@@ -1,5 +1,4 @@
-// src/navigation/AppNavigator.js
-
+// src/navigation/AppNavigator.tsx
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -12,33 +11,53 @@ import {
   OptimizedLargeList,
   ProductListScreen,
   TokenScreen,
-} from "./src/screens";
+  UserDetailsScreen,
+} from "../screens";
 
-const Stack = createNativeStackNavigator();
+type RootStackParamList = {
+  HomeScreen: undefined;
+  OptimizedLargeListScreen: undefined;
+  ProductsListScreen: undefined;
+  OfflineSupportScreen: undefined;
+  CartScreen: undefined;
+  TokenScreen: undefined;
+  UserDetailsScreen: { id: string };
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
+const linking = {
+  prefixes: ["myapp://"],
+  config: {
+    screens: {
+      HomeScreen: "home",
+      UserDetailsScreen: "user/:id",
+      OptimizedLargeListScreen: "optimizedlargelist",
+      ProductsListScreen: "productslist",
+      OfflineSupportScreen: "offline",
+      CartScreen: "cart",
+      TokenScreen: "token",
+    },
+  },
+};
 
 const AppNavigator = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking}>
       <Stack.Navigator
-        initialRouteName="homescreen"
+        initialRouteName="HomeScreen"
         screenOptions={{ headerShown: false }}
       >
-        {/* Main content list screen */}
-        <Stack.Screen name="homescreen" component={HomeScreen} />
-
-        {/* Content details screen, shown on item tap */}
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen
-          name="optimizedlargelistscreen"
+          name="OptimizedLargeListScreen"
           component={OptimizedLargeList}
         />
-
-        <Stack.Screen name="productslistscreen" component={ProductListScreen} />
-
-        <Stack.Screen name="offlinesupportscreen" component={OfflineSupport} />
-
-        <Stack.Screen name="cartscreen" component={CartScreen} />
-
-        <Stack.Screen name="tokenscreen" component={TokenScreen} />
+        <Stack.Screen name="ProductsListScreen" component={ProductListScreen} />
+        <Stack.Screen name="OfflineSupportScreen" component={OfflineSupport} />
+        <Stack.Screen name="CartScreen" component={CartScreen} />
+        <Stack.Screen name="TokenScreen" component={TokenScreen} />
+        <Stack.Screen name="UserDetailsScreen" component={UserDetailsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

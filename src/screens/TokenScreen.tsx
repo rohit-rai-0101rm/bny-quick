@@ -30,7 +30,7 @@ const TokenScreen: React.FC = () => {
     if (savedToken) {
       setToken(savedToken);
     } else {
-      storeToken(); // store first token if none exists
+      storeToken();
     }
     setLoading(false);
   };
@@ -58,15 +58,6 @@ const TokenScreen: React.FC = () => {
 
       <TouchableOpacity style={styles.button} onPress={storeToken}>
         <Text style={styles.buttonText}>Save New Token</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={[styles.button, styles.secondaryButton]}
-        onPress={retrieveToken}
-      >
-        <Text style={[styles.buttonText, styles.secondaryButtonText]}>
-          Retrieve Token
-        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -117,7 +108,6 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     paddingHorizontal: 50,
     borderRadius: 12,
-    marginBottom: 15,
     shadowColor: "#4A90E2",
     shadowOpacity: 0.3,
     shadowRadius: 6,
@@ -128,14 +118,6 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 16,
     fontWeight: "600",
-  },
-  secondaryButton: {
-    backgroundColor: "#fff",
-    borderWidth: 1,
-    borderColor: "#4A90E2",
-  },
-  secondaryButtonText: {
-    color: "#4A90E2",
   },
 });
 
