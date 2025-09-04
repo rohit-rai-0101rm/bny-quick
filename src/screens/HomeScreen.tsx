@@ -35,7 +35,11 @@ const features = [
     title: "Optimized Large List",
     screen: "optimizedlargelistscreen",
   },
-  { id: "2", title: "Global State (Cart System)", screen: "CartScreen" },
+  {
+    id: "2",
+    title: "Global State (Cart System)",
+    screen: "productslistscreen",
+  },
   { id: "3", title: "Offline Support", screen: "OfflineScreen" },
   { id: "4", title: "Secure Token Storage", screen: "TokenScreen" },
   { id: "5", title: "Deep Linking", screen: "DeepLinkScreen" },

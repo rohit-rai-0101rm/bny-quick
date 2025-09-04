@@ -8,6 +8,7 @@ import {
   Contentscreen,
   HomeScreen,
   OptimizedLargeList,
+  ProductListScreen,
 } from "./src/screens";
 
 const Stack = createNativeStackNavigator();
@@ -27,6 +28,8 @@ const AppNavigator = () => {
           name="optimizedlargelistscreen"
           component={OptimizedLargeList}
         />
+
+        <Stack.Screen name="productslistscreen" component={ProductListScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
