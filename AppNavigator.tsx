@@ -1,0 +1,35 @@
+// src/navigation/AppNavigator.js
+
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import {
+  ContentDetails,
+  Contentscreen,
+  HomeScreen,
+  OptimizedLargeList,
+} from "./src/screens";
+
+const Stack = createNativeStackNavigator();
+
+const AppNavigator = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="homescreen"
+        screenOptions={{ headerShown: false }}
+      >
+        {/* Main content list screen */}
+        <Stack.Screen name="homescreen" component={HomeScreen} />
+
+        {/* Content details screen, shown on item tap */}
+        <Stack.Screen
+          name="optimizedlargelistscreen"
+          component={OptimizedLargeList}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default AppNavigator;
