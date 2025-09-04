@@ -8,8 +8,10 @@ import {
   ContentDetails,
   Contentscreen,
   HomeScreen,
+  OfflineSupport,
   OptimizedLargeList,
   ProductListScreen,
+  TokenScreen,
 } from "./src/screens";
 
 const Stack = createNativeStackNavigator();
@@ -32,7 +34,11 @@ const AppNavigator = () => {
 
         <Stack.Screen name="productslistscreen" component={ProductListScreen} />
 
+        <Stack.Screen name="offlinesupportscreen" component={OfflineSupport} />
+
         <Stack.Screen name="cartscreen" component={CartScreen} />
+
+        <Stack.Screen name="tokenscreen" component={TokenScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
