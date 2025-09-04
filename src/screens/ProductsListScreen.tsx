@@ -1,4 +1,3 @@
-// src/screens/ProductsListScreen.tsx
 import React, { useCallback, useState, useEffect } from "react";
 import {
   View,
@@ -8,6 +7,7 @@ import {
   Button,
   TouchableOpacity,
   Image,
+  SafeAreaView,
 } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../store/cartSlice";
@@ -82,49 +82,46 @@ const ProductsListScreen: React.FC = () => {
     [dispatch, addedItems]
   );
 
-  React.useLayoutEffect(() => {
-    navigation.setOptions({
-      headerRight: () => (
-        <TouchableOpacity
-          style={{ marginRight: 15 }}
-          onPress={() => navigation.navigate("CartScreen" as never)}
-        >
-          <View style={{ width: 30, height: 30 }}>
-            <Image
-              source={{ uri: "https://via.placeholder.com/30?text=Cart" }}
-              style={{ width: 30, height: 30 }}
-            />
-            {cartItems.length > 0 && (
-              <View style={styles.cartBadge}>
-                <Text style={styles.cartBadgeText}>{cartItems.length}</Text>
-              </View>
-            )}
-          </View>
-        </TouchableOpacity>
-      ),
-    });
-  }, [navigation, cartItems.length]);
+  const handleGoToCart = useCallback(() => {
+    navigation.navigate("CartScreen" as never);
+  }, [navigation]);
 
   return (
-    <FlatList
-      data={products}
-      keyExtractor={(item) => item.id}
-      renderItem={({ item }) => (
-        <ProductItem
-          product={item}
-          onToggle={handleToggleCart}
-          added={!!addedItems[item.id]}
+    <SafeAreaView style={styles.safeContainer}>
+      <View style={styles.innerContainer}>
+        <TouchableOpacity style={styles.cartBanner} onPress={handleGoToCart}>
+          <Image
+            source={{ uri: "https://via.placeholder.com/30?text=Cart" }}
+            style={styles.cartImage}
+          />
+          <Text style={styles.cartText}>
+            {cartItems.length} item{cartItems.length !== 1 ? "s" : ""} in Cart
+          </Text>
+          <Text style={styles.goToCartText}>View Cart</Text>
+        </TouchableOpacity>
+
+        <FlatList
+          data={products}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <ProductItem
+              product={item}
+              onToggle={handleToggleCart}
+              added={!!addedItems[item.id]}
+            />
+          )}
+          contentContainerStyle={{ paddingBottom: 20 }}
         />
-      )}
-      contentContainerStyle={{ paddingBottom: 20 }}
-    />
+      </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  safeContainer: { flex: 1, backgroundColor: "#F7F7F7" },
+  innerContainer: { flex: 1, paddingHorizontal: 16 },
   card: {
     backgroundColor: "#fff",
-    marginHorizontal: 15,
     marginVertical: 8,
     padding: 15,
     borderRadius: 12,
@@ -140,18 +137,23 @@ const styles = StyleSheet.create({
   textContainer: { flexShrink: 1 },
   name: { fontSize: 16, fontWeight: "600", marginBottom: 5 },
   price: { fontSize: 14, color: "#666" },
-  cartBadge: {
-    position: "absolute",
-    top: -5,
-    right: -5,
-    backgroundColor: "#FF3B30",
-    borderRadius: 8,
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    minWidth: 18,
+  cartBanner: {
+    flexDirection: "row",
     alignItems: "center",
+    backgroundColor: "#4A90E2",
+    padding: 15,
+    marginVertical: 15,
+    borderRadius: 12,
+    justifyContent: "space-between",
   },
-  cartBadgeText: { color: "#fff", fontSize: 12, fontWeight: "600" },
+  cartImage: { width: 30, height: 30 },
+  cartText: { color: "#fff", fontWeight: "600", fontSize: 16 },
+  goToCartText: {
+    color: "#fff",
+    fontWeight: "700",
+    fontSize: 14,
+    textDecorationLine: "underline",
+  },
 });
 
 export default ProductsListScreen;
