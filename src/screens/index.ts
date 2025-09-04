@@ -21,3 +21,5 @@ export { default as UserDetailsScreen } from './UserDetailsScreen'
 export { default as CodeFixScreen } from './CodeReviewFix'
 
 
+export { default as NativeModuleScreen } from './NativeModuleScreen'
+

@@ -15,7 +15,7 @@ const data: DataItem[] = [
 const CodeFixScreen: React.FC = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Coorect FlatList Example</Text>
+      <Text style={styles.heading}>Correct FlatList Example</Text>
       <FlatList
         data={data}
         keyExtractor={(item) => item.id}

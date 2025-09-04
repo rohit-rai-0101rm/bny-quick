@@ -44,7 +44,6 @@ const features = [
   { id: "4", title: "Secure Token Storage", screen: "tokenscreen" },
   { id: "5", title: "Deep Linking", screen: "userslistscreen" },
   { id: "6", title: "Code Review Fix", screen: "codefixscreen" },
-  { id: "7", title: "Native Module", screen: "NativeModuleScreen" },
 ];
 
 const HomeScreen: React.FC = () => {
